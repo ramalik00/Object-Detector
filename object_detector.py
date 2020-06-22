@@ -17,7 +17,7 @@ args = vars(ap.parse_args())
 
 
 labelsPath = os.path.sep.join(["yolo-coco", "coco.names"])
-LABELS = open(labelsPath).read().strip().split("\n")
+Labels = open(labelsPath).read().strip().split("\n")
 weightsPath = os.path.sep.join(["yolo-coco", "yolov3.weights"])
 configPath = os.path.sep.join(["yolo-coco", "yolov3.cfg"])
 print("MODEL LOADED")
@@ -51,10 +51,10 @@ while True:
 		(X_start, Y_start, X_end, Y_end) = bounding_box
 		(X_c, Y_c) = centroid
 		cv2.rectangle(frame, (X_start, Y_start), (X_end, Y_end), (0,255,0), 2)
-		text=LABELS[classes]
-		cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+		text=La[classes]
+		cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 		text = "Total Objects"+str(len(results))
-		cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 3)
+		cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8,(193, 182, 255), 3)
 
 	if args["display"] > 0:
 		
