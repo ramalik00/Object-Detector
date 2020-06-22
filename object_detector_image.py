@@ -14,7 +14,7 @@ ap.add_argument("-d", "--display", type=int, default=1)
 args = vars(ap.parse_args())
 
 labelsPath = os.path.sep.join(["yolo-coco", "coco.names"])
-LABELS = open(labelsPath).read().strip().split("\n")
+Labels = open(labelsPath).read().strip().split("\n")
 
 weightsPath = os.path.sep.join(["yolo-coco", "yolov3.weights"])
 configPath = os.path.sep.join(["yolo-coco", "yolov3.cfg"])
@@ -37,9 +37,9 @@ results = detect_people(frame, net, last_layer)
 for (i, (prob, bounding_box, centroid,classes)) in enumerate(results):
         
 	X_start, Y_start, X_end, Y_end = bounding_box	
-	cv2.rectangle(frame,(X_start, Y_start),(X_end, Y_end),(0,255,0), 2)
+	cv2.rectangle(frame,(X_start, Y_start),(X_end, Y_end),(193, 182, 255), 2)
 	text=LABELS[classes]
-	cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+	cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 
 
 text = "Total Objects: {}".format(len(results))
