@@ -26,7 +26,6 @@ net = cv2.dnn.readNetFromDarknet(configPath, weightsPath)
 
 if USE_GPU:
 	
-	print("setting preferable backend and target to CUDA...")
 	net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
 	net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
@@ -50,11 +49,11 @@ while True:
 		
 		(X_start, Y_start, X_end, Y_end) = bounding_box
 		(X_c, Y_c) = centroid
-		cv2.rectangle(frame, (X_start, Y_start), (X_end, Y_end), (0,255,0), 2)
+		cv2.rectangle(frame, (X_start, Y_start), (X_end, Y_end),(193, 182, 255), 2)
 		text=La[classes]
 		cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 		text = "Total Objects"+str(len(results))
-		cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8,(193, 182, 255), 3)
+		cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8,(0, 255, 0), 3)
 
 	if args["display"] > 0:
 		
