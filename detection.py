@@ -11,7 +11,6 @@ def detect_people(frame, net, ln):
 	net.setInput(blob)
 	layerOutputs = net.forward(ln)
 	boxes = []
-	centroids = []
 	confidences = []
 	classes=[]
 
@@ -27,7 +26,7 @@ def detect_people(frame, net, ln):
                                 x=int(X_center-(w/2))
                                 y=int(Y_center-(w/2))
                                 boxes.append([x, y, int(w), int(h)])
-                                centroids.append((X_center,Y_center))
+                                
                                 confidences.append(float(confidence))
                                 classes.append(classID)
 				
@@ -40,7 +39,7 @@ def detect_people(frame, net, ln):
 		for i in indexs.flatten():
 			(x,y) = (boxes[i][0], boxes[i][1])
 			(w,h) = (boxes[i][2], boxes[i][3])
-			r = (confidences[i], (x, y, x + w, y + h), centroids[i],classes[i])
+			r = (confidences[i], (x, y, x + w, y + h),classes[i])
 			results.append(r)
 
 	
