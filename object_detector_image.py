@@ -34,11 +34,11 @@ frame = cv2.imread(args["input"])
 frame = imutils.resize(frame, width=800)
 results = detect_people(frame, net, last_layer)
 
-for (i, (prob, bounding_box, centroid,classes)) in enumerate(results):
+for (i, (prob, bounding_box,classes)) in enumerate(results):
         
 	X_start, Y_start, X_end, Y_end = bounding_box	
 	cv2.rectangle(frame,(X_start, Y_start),(X_end, Y_end),(193, 182, 255), 2)
-	text=LABELS[classes]
+	text=Labels[classes]
 	cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 
 
