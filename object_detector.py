@@ -45,12 +45,12 @@ while True:
 	frame = imutils.resize(frame, width=700)
 	results = detect_people(frame, net, last_layer)
 
-	for (i, (prob, bounding_box, centroid,classes)) in enumerate(results):
+	for (i, (prob, bounding_box,classes)) in enumerate(results):
 		
 		(X_start, Y_start, X_end, Y_end) = bounding_box
-		(X_c, Y_c) = centroid
+		
 		cv2.rectangle(frame, (X_start, Y_start), (X_end, Y_end),(193, 182, 255), 2)
-		text=La[classes]
+		text=Labels[classes]
 		cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 		text = "Total Objects"+str(len(results))
 		cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8,(0, 255, 0), 3)
