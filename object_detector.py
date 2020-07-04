@@ -1,5 +1,4 @@
 
-
 from detection import detect_people
 import numpy as np
 import argparse
