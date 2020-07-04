@@ -2,7 +2,7 @@
 
 
 
-#### Install Tensorflow,OpenCV(Manual Installation for GPU access otherwise use pip if you want to do it on CPU)
+#### Install Tensorflow,imutils,OpenCV(Manual Installation for GPU access otherwise use pip if you want to do it on CPU)
 
 #### Download YOLOv3-416 weights file from here: https://pjreddie.com/darknet/yolo/
 
