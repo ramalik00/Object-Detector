@@ -42,7 +42,7 @@ for (i, (prob, bounding_box,classes)) in enumerate(results):
 	cv2.putText(frame,text,(X_start,Y_start-10),cv2.FONT_HERSHEY_SIMPLEX, 0.7,(193, 182, 255), 2)
 
 
-text = "Total Objects: {}".format(len(results))
+text = "Total Objects : "+str(len(results))
 cv2.putText(frame, text, (10, frame.shape[0] - 25),cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 3)		
 	
 if args["display"] > 0:
