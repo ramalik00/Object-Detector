@@ -9,7 +9,7 @@ import os
 
 USE_GPU=False
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--input", type=str, default="0",)
+ap.add_argument("-i", "--input", type=str, default="",)
 ap.add_argument("-o", "--output", type=str, default="")
 ap.add_argument("-d", "--display", type=int, default=1,)
 args = vars(ap.parse_args())
@@ -32,12 +32,13 @@ if USE_GPU:
 last_layer = net.getLayerNames()
 last_layer = [last_layer[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 print("INPUT LOADED")
-vs = cv2.VideoCapture(args["input"])
+	
+cap=cv2.VideoCapture(args["input"] if args["input"]!="" else 0)
 writer = None
 
 while True:
 	
-	(access, frame) = vs.read()
+	(access,frame) = cap.read()
 	if not access:
 		break
 	
