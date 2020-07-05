@@ -3,13 +3,13 @@ import cv2
 
 Min_Conf=0.3
 NMS_THRESH=0.3
-def detect_people(frame, net, ln):
+def detect_people(frame, net,last_layer):
 	(H, W) = frame.shape[:2]
 	results = []
 	blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416),
 		swapRB=True, crop=False)
 	net.setInput(blob)
-	layerOutputs = net.forward(ln)
+	layerOutputs = net.forward(last_layer)
 	boxes = []
 	confidences = []
 	classes=[]
