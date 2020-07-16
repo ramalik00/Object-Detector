@@ -43,7 +43,7 @@ while True:
 		break
 	
 	frame = imutils.resize(frame, width=700)
-	results = detect_people(frame, net, last_layer)
+	results = detect_objects(frame, net, last_layer)
 
 	for (i, (prob, bounding_box,classes)) in enumerate(results):
 		
