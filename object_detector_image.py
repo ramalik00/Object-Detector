@@ -32,7 +32,7 @@ last_layer = [last_layer[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 frame = cv2.imread(args["input"])
 frame = imutils.resize(frame, width=800)
-results = detect_people(frame, net, last_layer)
+results = detect_objects(frame, net, last_layer)
 
 for (i, (prob, bounding_box,classes)) in enumerate(results):
         
