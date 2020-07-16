@@ -24,7 +24,7 @@ def detect_objects(frame, net,last_layer):
                                 box = detection[0:4] * np.array([W, H, W, H])
                                 (X_center,Y_center,w,h)=box.astype("int")
                                 x=int(X_center-(w/2))
-                                y=int(Y_center-(w/2))
+                                y=int(Y_center-(h/2))
                                 boxes.append([x, y, int(w), int(h)])
                                 
                                 confidences.append(float(confidence))
