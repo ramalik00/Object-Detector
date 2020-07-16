@@ -3,7 +3,7 @@ import cv2
 
 Min_Conf=0.3
 NMS_THRESH=0.3
-def detect_people(frame, net,last_layer):
+def detect_objects(frame, net,last_layer):
 	(H, W) = frame.shape[:2]
 	results = []
 	blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416),
